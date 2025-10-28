@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirim Pesan ke WhatsApp Support</title>
+    <style>
+        :root {
+            --primary: #25D366;
+            --secondary: #128C7E;
+            --light: #f5f5f5;
+            --dark: #333;
+            --danger: #e74c3c;
+            --success: #2ecc71;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        h1 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        button:hover {
+            background-color: var(--secondary);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .message {
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .success {
+            background-color: rgba(46, 204, 113, 0.2);
+            border-left: 4px solid var(--success);
+            color: var(--success);
+        }
+        
+        .error {
+            background-color: rgba(231, 76, 60, 0.2);
+            border-left: 4px solid var(--danger);
+            color: var(--danger);
+        }
+        
+        .info {
+            background-color: rgba(52, 152, 219, 0.2);
+            border-left: 4px solid #3498db;
+            color: #3498db;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .email-info {
+            background-color: rgba(18, 140, 126, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fab fa-whatsapp"></i>
+                <h1>Kirim Pesan ke WhatsApp Support</h1>
+            </div>
+            <p>Kirim pesan otomatis ke WhatsApp Support melalui email</p>
+        </header>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="login">Login Email</div>
+            <div class="tab" data-tab="message">Kirim Pesan</div>
+        </div>
+        
+        <div class="tab-content active" id="login-tab">
+            <div class="card">
+                <div class="email-info">
+                    <p><strong>Informasi:</strong> Email akan dikirim ke <strong>693451923764139@support.whatsapp.com</strong></p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Alamat Email</label>
+                    <input type="email" id="email" placeholder="Masukkan alamat email Anda">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password Email</label>
+                    <input type="password" id="password" placeholder="Masukkan password email Anda">
+                </div>
+                
+                <div class="form-group">
+                    <label for="smtp">SMTP Server</label>
+                    <select id="smtp">
+                        <option value="smtp.gmail.com:587">Gmail (smtp.gmail.com:587)</option>
+                        <option value="smtp.office365.com:587">Outlook/Office365 (smtp.office365.com:587)</option>
+                        <option value="smtp.mail.yahoo.com:587">Yahoo (smtp.mail.yahoo.com:587)</option>
+                        <option value="custom">Custom SMTP</option>
+                    </select>
+                </div>
+                
+                <div class="form-group hidden" id="custom-smtp">
+                    <label for="custom-smtp-server">Custom SMTP Server</label>
+                    <input type="text" id="custom-smtp-server" placeholder="Contoh: smtp.domain.com:587">
+                </div>
+                
+                <button id="login-btn">Login ke Email</button>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="message-tab">
+            <div class="card">
+                <div id="message-status" class="message hidden"></div>
+                
+                <div class="form-group">
+                    <label for="subject">Subjek Pesan</label>
+                    <input type="text" id="subject" placeholder="Masukkan subjek pesan">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message-text">Isi Pesan</label>
+                    <textarea id="message-text" placeholder="Tulis pesan yang ingin dikirim ke WhatsApp Support"></textarea>
+                </div>
+                
+                <button id="send-btn">Kirim Pesan</button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 WhatsApp Support Message Sender. Semua hak dilindungi.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab navigation
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to current tab and content
+                    tab.classList.add('active');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+            
+            // Show/hide custom SMTP field
+            const smtpSelect = document.getElementById('smtp');
+            const customSmtpDiv = document.getElementById('custom-smtp');
+            
+            smtpSelect.addEventListener('change', function() {
+                if (this.value === 'custom') {
+                    customSmtpDiv.classList.remove('hidden');
+                } else {
+                    customSmtpDiv.classList.add('hidden');
+                }
+            });
+            
+            // Login button handler
+            const loginBtn = document.getElementById('login-btn');
+            loginBtn.addEventListener('click', function() {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const smtp = document.getElementById('smtp').value;
+                const customSmtp = document.getElementById('custom-smtp-server').value;
+                
+                if (!email || !password) {
+                    showMessage('error', 'Harap isi semua field yang diperlukan.');
+                    return;
+                }
+                
+                // In a real application, you would send this to a backend server
+                // For security reasons, never handle email credentials in frontend JavaScript
+                showMessage('info', 'Mencoba login ke akun email...');
+                
+                // Simulate login process
+                setTimeout(() => {
+                    showMessage('success', 'Berhasil login ke akun email!');
+                    
+                    // Switch to message tab after successful login
+                    setTimeout(() => {
+                        document.querySelector('.tab[data-tab="login"]').classList.remove('active');
+                        document.querySelector('.tab[data-tab="message"]').classList.add('active');
+                        document.getElementById('login-tab').classList.remove('active');
+                        document.getElementById('message-tab').classList.add('active');
+                    }, 1000);
+                }, 2000);
+            });
+            
+            // Send message button handler
+            const sendBtn = document.getElementById('send-btn');
+            sendBtn.addEventListener('click', function() {
+                const subject = document.getElementById('subject').value;
+                const messageText = document.getElementById('message-text').value;
+                
+                if (!subject || !messageText) {
+                    showMessage('error', 'Harap isi subjek dan isi pesan.');
+                    return;
+                }
+                
+                showMessage('info', 'Mengirim pesan ke WhatsApp Support...');
+                
+                // In a real application, you would send this to a backend server
+                // which would then send the email to WhatsApp Support
+                setTimeout(() => {
+                    showMessage('success', 'Pesan berhasil dikirim ke WhatsApp Support!');
+                    
+                    // Clear form
+                    document.getElementById('subject').value = '';
+                    document.getElementById('message-text').value = '';
+                }, 2000);
+            });
+            
+            // Function to show status messages
+            function showMessage(type, text) {
+                const messageDiv = document.getElementById('message-status');
+                messageDiv.textContent = text;
+                messageDiv.className = `message ${type}`;
+                messageDiv.classList.remove('hidden');
+                
+                // Auto hide after 5 seconds
+                setTimeout(() => {
+                    messageDiv.classList.add('hidden');
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
